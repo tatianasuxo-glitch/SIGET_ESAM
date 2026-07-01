@@ -1,0 +1,291 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.esam-header{
+
+    width:100%;
+
+    min-height:82px;
+
+    background:#FFFFFF;
+
+    border-bottom:4px solid #F2C100;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:12px 28px;
+
+    box-shadow:0 4px 18px rgba(11,44,93,0.08);
+
+    overflow:hidden;
+}
+
+/* =========================
+   LEFT
+========================= */
+
+.esam-header-left{
+
+    display:flex;
+    align-items:center;
+
+    gap:18px;
+
+    min-width:0;
+
+    flex:1;
+}
+
+.esam-logo{
+
+    height:55px;
+
+    width:auto;
+
+    object-fit:contain;
+
+    flex-shrink:0;
+}
+
+/* =========================
+   SYSTEM INFO
+========================= */
+
+.esam-system{
+
+    min-width:0;
+}
+
+.esam-system h1{
+
+    font-size:24px;
+
+    color:#0B2C5D;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+    white-space:nowrap;
+}
+
+.esam-system span{
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#64748B;
+
+    font-size:13px;
+
+    font-weight:500;
+}
+
+/* =========================
+   RIGHT
+========================= */
+
+.esam-header-right{
+
+    display:flex;
+    align-items:center;
+
+    gap:14px;
+
+    flex-shrink:0;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.esam-profile{
+
+    display:flex;
+    align-items:center;
+
+    gap:10px;
+
+    background:#F8FAFC;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:16px;
+
+    padding:8px 12px;
+}
+
+.esam-avatar{
+
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:#0B2C5D;
+
+    color:#F2C100;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:20px;
+
+    flex-shrink:0;
+}
+
+.esam-user-info{
+
+    display:flex;
+    flex-direction:column;
+
+    line-height:1.2;
+}
+
+.esam-user-info strong{
+
+    color:#0B2C5D;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    white-space:nowrap;
+}
+
+.esam-user-info span{
+
+    color:#64748B;
+
+    font-size:12px;
+}
+
+/* =========================
+   LOGOUT
+========================= */
+
+.esam-logout{
+
+    background:#F2C100;
+
+    color:#0B2C5D;
+
+    text-decoration:none;
+
+    font-weight:800;
+
+    padding:12px 18px;
+
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+
+    transition:0.2s ease;
+
+    white-space:nowrap;
+}
+
+.esam-logout:hover{
+
+    background:#FFD83D;
+
+    transform:translateY(-1px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1100px){
+
+    .esam-system h1{
+
+        font-size:20px;
+    }
+
+}
+
+@media(max-width:900px){
+
+    .esam-system span{
+
+        display:none;
+    }
+
+    .esam-user-info span{
+
+        display:none;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .esam-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:14px;
+
+        padding:18px;
+    }
+
+    .esam-header-left{
+
+        width:100%;
+    }
+
+    .esam-header-right{
+
+        width:100%;
+
+        justify-content:space-between;
+    }
+
+    .esam-system h1{
+
+        font-size:18px;
+
+        white-space:normal;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .esam-user-info{
+
+        display:none;
+    }
+
+    .esam-profile{
+
+        padding:8px;
+    }
+
+    .esam-logout span{
+
+        display:none;
+    }
+
+}

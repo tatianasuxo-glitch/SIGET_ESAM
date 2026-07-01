@@ -1,0 +1,678 @@
+[v-cloak] {
+    display: none;
+}
+
+/* =========================
+   CONTENEDOR GENERAL
+========================= */
+.reglamentos-screen {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    padding: 22px;
+    background: #f3f6fb;
+}
+
+.reglamentos-shell {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+/* =========================
+   TOP / TITULOS
+========================= */
+.page-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.page-topbar h1,
+.reglamentos-hero h1 {
+    margin: 0;
+    font-size: 38px;
+    line-height: 1.1;
+    color: #0e3264;
+    font-weight: 800;
+}
+
+.page-topbar p,
+.reglamentos-hero p {
+    margin: 8px 0 0;
+    color: #5e6b7c;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* =========================
+   HERO
+========================= */
+.reglamentos-hero {
+    background: linear-gradient(135deg, #0e3264 0%, #154786 60%, #f2c100 100%);
+    border-radius: 24px;
+    padding: 30px;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 26px;
+    box-shadow: 0 18px 35px rgba(14, 50, 100, 0.18);
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-label {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.hero-label.dark {
+    background: #e8eef9;
+    color: #0e3264;
+    border: 1px solid #d6e0f3;
+}
+
+.reglamentos-hero h1 {
+    color: #fff;
+}
+
+.reglamentos-hero p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-stats {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    min-width: 120px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 18px;
+    padding: 18px 16px;
+    text-align: center;
+    backdrop-filter: blur(6px);
+}
+
+.stat-box strong {
+    display: block;
+    font-size: 32px;
+    line-height: 1;
+    color: #fff;
+    margin-bottom: 6px;
+}
+
+.stat-box span {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* =========================
+   TARJETAS PRINCIPALES
+========================= */
+.reglamento-home-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.reglamento-option-card {
+    background: #ffffff;
+    border: 1px solid #e5e9f2;
+    border-radius: 24px;
+    padding: 26px;
+    cursor: pointer;
+    box-shadow: 0 10px 28px rgba(14, 50, 100, 0.08);
+    transition: all 0.25s ease;
+    min-height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.reglamento-option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 38px rgba(14, 50, 100, 0.13);
+    border-color: #d7e1f0;
+}
+
+.option-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin-bottom: 18px;
+}
+
+.option-blue {
+    background: #e8f0ff;
+    color: #0e56cc;
+}
+
+.option-gold {
+    background: #fff7d6;
+    color: #b78900;
+}
+
+.option-body h2 {
+    margin: 0 0 10px;
+    font-size: 30px;
+    color: #102643;
+    font-weight: 800;
+}
+
+.option-body p {
+    margin: 0;
+    color: #5e6b7c;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.option-footer {
+    margin-top: 20px;
+}
+
+/* =========================
+   ALERTAS
+========================= */
+.alert {
+    border-radius: 14px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.alert.success {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #b7efc5;
+}
+
+.alert.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+/* =========================
+   FORMULARIOS
+========================= */
+.form-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+.form-info-card,
+.form-main-card,
+.panel-reglamento,
+.form-reglamento {
+    background: #ffffff;
+    border: 1px solid #e5e9f2;
+    border-radius: 22px;
+    box-shadow: 0 8px 24px rgba(14, 50, 100, 0.07);
+}
+
+.form-info-card {
+    padding: 24px;
+}
+
+.form-info-card h2 {
+    margin: 0 0 12px;
+    color: #102643;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.form-info-card p {
+    color: #5e6b7c;
+    line-height: 1.7;
+}
+
+.mini-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.mini-step {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: #f7f9fc;
+    border-radius: 14px;
+    padding: 12px 14px;
+}
+
+.mini-step strong {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+    background: #0e3264;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.mini-step span {
+    color: #334155;
+    font-size: 14px;
+}
+
+.form-main-card {
+    padding: 24px;
+}
+
+.form-reglamento {
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.search-box input,
+.reglamentos-toolbar select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid #d7deea;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 14px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.search-box input:focus,
+.reglamentos-toolbar select:focus {
+    border-color: #0e56cc;
+    box-shadow: 0 0 0 4px rgba(14, 86, 204, 0.12);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.preview-card {
+    margin: 8px 0 20px;
+    padding: 18px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f8fbff 0%, #eef4ff 100%);
+    border: 1px dashed #c8d6f1;
+}
+
+.preview-card span {
+    display: block;
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.preview-card strong {
+    display: block;
+    font-size: 20px;
+    color: #0e3264;
+    margin-bottom: 8px;
+}
+
+.preview-card p {
+    margin: 0 0 8px;
+    color: #475569;
+}
+
+.preview-card small {
+    color: #64748b;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* =========================
+   BOTONES
+========================= */
+.btn-primary,
+.btn-secondary,
+.btn-danger,
+.btn-view {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 11px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-primary {
+    background: #0e3264;
+    color: #ffffff;
+    border-color: #0e3264;
+}
+
+.btn-primary:hover {
+    background: #0a274f;
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: #102643;
+    border-color: #d7deea;
+}
+
+.btn-secondary:hover {
+    background: #f8fafc;
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: #ffffff;
+    border-color: #dc2626;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+.btn-view {
+    background: #f2c100;
+    color: #102643;
+    border-color: #f2c100;
+}
+
+/* =========================
+   VER REGLAMENTOS
+========================= */
+.reglamentos-toolbar {
+    display: grid;
+    grid-template-columns: 1fr 230px 220px;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.empty-state {
+    border: 1px dashed #cfd8e6;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 32px;
+    text-align: center;
+    color: #64748b;
+}
+
+.reglamentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 20px;
+}
+
+.reglamento-card-vue {
+    background: #ffffff;
+    border: 1px solid #e5e9f2;
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 8px 24px rgba(14, 50, 100, 0.07);
+    display: flex;
+    flex-direction: column;
+}
+
+.reglamento-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.tipo-badge,
+.estado-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.tipo-badge {
+    background: #e8f0ff;
+    color: #1d4ed8;
+}
+
+.estado-badge.activo {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.estado-badge.inactivo {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.reglamento-card-vue h3 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    line-height: 1.3;
+    color: #102643;
+}
+
+.descripcion {
+    color: #5e6b7c;
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 70px;
+}
+
+.reglamento-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    border-top: 1px solid #edf2f7;
+    border-bottom: 1px solid #edf2f7;
+    padding: 16px 0;
+    margin: 16px 0;
+}
+
+.reglamento-meta span {
+    display: block;
+    font-size: 12px;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.reglamento-meta strong {
+    display: block;
+    font-size: 13px;
+    color: #0f172a;
+    word-break: break-word;
+}
+
+.reglamento-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.inline-form {
+    display: inline;
+}
+
+/* =========================
+   EDITAR
+========================= */
+.edit-layout {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 22px;
+    align-items: start;
+}
+
+.edit-side {
+    background: #ffffff;
+    border: 1px solid #e5e9f2;
+    border-radius: 22px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(14, 50, 100, 0.07);
+}
+
+.edit-side h2 {
+    margin: 14px 0 10px;
+    font-size: 24px;
+    color: #102643;
+}
+
+.edit-side p,
+.edit-side small {
+    color: #5e6b7c;
+    line-height: 1.7;
+}
+
+.reglamentos-tabs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.reglamentos-tabs button {
+    border: 1px solid #d7deea;
+    background: #ffffff;
+    color: #102643;
+    padding: 11px 16px;
+    border-radius: 999px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.reglamentos-tabs button.activo {
+    background: #0e3264;
+    color: #ffffff;
+    border-color: #0e3264;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1200px) {
+    .reglamento-home-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 992px) {
+    .reglamentos-hero,
+    .page-topbar,
+    .form-layout,
+    .edit-layout {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .reglamento-home-grid,
+    .reglamentos-toolbar,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-stats {
+        width: 100%;
+    }
+
+    .stat-box {
+        flex: 1;
+    }
+}
+
+@media (max-width: 640px) {
+    .reglamentos-screen {
+        padding: 14px;
+    }
+
+    .reglamentos-hero,
+    .form-info-card,
+    .form-main-card,
+    .reglamento-option-card,
+    .reglamento-card-vue,
+    .edit-side {
+        padding: 18px;
+    }
+
+    .page-topbar h1,
+    .reglamentos-hero h1 {
+        font-size: 30px;
+    }
+
+    .reglamento-home-grid,
+    .reglamentos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reglamento-meta {
+        grid-template-columns: 1fr;
+    }
+}

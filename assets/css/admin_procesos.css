@@ -1,0 +1,460 @@
+[v-cloak] {
+    display: none;
+}
+
+.procesos-screen {
+    width: 100%;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.procesos-shell {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.procesos-hero {
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+    align-items: center;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    border-radius: 20px;
+    color: #ffffff;
+    background: linear-gradient(120deg, #03325d 0%, #1e517e 58%, #ffde00 150%);
+    box-shadow: 0 12px 28px rgba(3, 50, 93, 0.15);
+}
+
+.procesos-etiqueta {
+    display: inline-flex;
+    padding: 7px 13px;
+    margin-bottom: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.procesos-hero h1 {
+    margin: 0 0 10px;
+    font-size: 2rem;
+    color: #ffffff;
+}
+
+.procesos-hero p {
+    max-width: 690px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.92);
+    line-height: 1.6;
+}
+
+.procesos-resumen {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(130px, 1fr));
+    gap: 12px;
+    min-width: 420px;
+}
+
+.resumen-card {
+    min-height: 100px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.27);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.resumen-card strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.8rem;
+    color: #ffffff;
+}
+
+.resumen-card span {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.procesos-panel {
+    padding: 26px;
+    border: 1px solid #e6ebf2;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(12, 40, 70, 0.07);
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.panel-header h2 {
+    margin: 0 0 7px;
+    color: #03325d;
+    font-size: 1.45rem;
+}
+
+.panel-header p {
+    max-width: 760px;
+    margin: 0;
+    color: #667085;
+    line-height: 1.55;
+}
+
+.filtros-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(180px, 1fr));
+    gap: 16px;
+    padding: 18px;
+    margin-bottom: 16px;
+    border: 1px solid #e7edf4;
+    border-radius: 14px;
+    background: #f8fafc;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    color: #344054;
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.form-group select,
+.form-group input {
+    width: 100%;
+    height: 42px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    border: 1px solid #d6dee8;
+    border-radius: 9px;
+    outline: none;
+    color: #26364a;
+    font-size: 0.9rem;
+    background: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group select:focus,
+.form-group input:focus {
+    border-color: #03325d;
+    box-shadow: 0 0 0 3px rgba(3, 50, 93, 0.11);
+}
+
+.buscador-procesos {
+    grid-column: span 2;
+}
+
+.acciones-filtros {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-view {
+    min-height: 40px;
+    padding: 0 15px;
+    border: 0;
+    border-radius: 9px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+}
+
+.btn-primary {
+    color: #03325d;
+    background: #ffde00;
+}
+
+.btn-primary:hover {
+    background: #f4d300;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    border: 1px solid #cad5e3;
+    color: #294561;
+    background: #ffffff;
+}
+
+.btn-secondary:hover {
+    background: #f2f6fa;
+}
+
+.btn-view {
+    color: #ffffff;
+    background: #03325d;
+}
+
+.btn-view:hover {
+    background: #07457f;
+}
+
+.btn-primary:disabled,
+.btn-secondary:disabled,
+.btn-view:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+    transform: none;
+}
+
+.select-cantidad {
+    min-height: 40px;
+    padding: 0 12px;
+    border: 1px solid #d6dee8;
+    border-radius: 9px;
+    color: #344054;
+    background: #ffffff;
+    font-size: 0.88rem;
+}
+
+.tabla-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #e5ebf2;
+    border-radius: 13px;
+}
+
+.procesos-table {
+    width: 100%;
+    min-width: 1320px;
+    border-collapse: collapse;
+    background: #ffffff;
+}
+
+.procesos-table th {
+    padding: 14px 13px;
+    border-bottom: 1px solid #dfe7ef;
+    color: #344054;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-align: left;
+    white-space: nowrap;
+    background: #f4f7fa;
+}
+
+.procesos-table td {
+    padding: 15px 13px;
+    border-bottom: 1px solid #edf1f5;
+    color: #475467;
+    font-size: 0.86rem;
+    vertical-align: middle;
+}
+
+.procesos-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.procesos-table tbody tr:hover {
+    background: #fbfdff;
+}
+
+.celda-principal,
+.celda-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.celda-principal strong,
+.celda-simple strong {
+    color: #173b5d;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.celda-principal span,
+.celda-simple span {
+    color: #667085;
+    line-height: 1.35;
+}
+
+.celda-principal small {
+    color: #8a98a8;
+    font-size: 0.76rem;
+}
+
+.estado-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 104px;
+    padding: 7px 10px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.estado-borrador {
+    color: #5d6672;
+    background: #edf1f5;
+}
+
+.estado-pendiente {
+    color: #805800;
+    background: #fff3ba;
+}
+
+.estado-observado {
+    color: #a2352b;
+    background: #ffe3df;
+}
+
+.estado-corregido {
+    color: #0e6a75;
+    background: #dff7f6;
+}
+
+.estado-aprobado {
+    color: #12633e;
+    background: #daf5e6;
+}
+
+.siguiente-accion {
+    min-width: 170px;
+    max-width: 245px;
+    color: #173b5d;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.empty-state {
+    padding: 38px 22px;
+    border: 1px dashed #cdd8e5;
+    border-radius: 12px;
+    color: #667085;
+    text-align: center;
+    background: #f9fbfd;
+}
+
+.alert {
+    padding: 13px 16px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.alert.success {
+    border: 1px solid #bdebd3;
+    color: #155d3c;
+    background: #edfff4;
+}
+
+.alert.error {
+    border: 1px solid #ffc9c4;
+    color: #9d2b23;
+    background: #fff2f1;
+}
+
+.paginacion {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    padding-top: 20px;
+    color: #667085;
+    font-size: 0.88rem;
+}
+
+.paginacion-botones {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 1260px) {
+    .filtros-grid {
+        grid-template-columns: repeat(3, minmax(180px, 1fr));
+    }
+
+    .procesos-resumen {
+        min-width: 360px;
+    }
+}
+
+@media (max-width: 960px) {
+    .procesos-screen {
+        padding: 16px;
+    }
+
+    .procesos-hero,
+    .panel-header,
+    .acciones-filtros,
+    .paginacion {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .procesos-resumen {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .filtros-grid {
+        grid-template-columns: repeat(2, minmax(180px, 1fr));
+    }
+
+    .buscador-procesos {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 620px) {
+    .procesos-hero,
+    .procesos-panel {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .procesos-hero h1 {
+        font-size: 1.55rem;
+    }
+
+    .procesos-resumen,
+    .filtros-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .buscador-procesos {
+        grid-column: span 1;
+    }
+
+    .acciones-filtros {
+        gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .select-cantidad {
+        width: 100%;
+    }
+
+    .paginacion-botones {
+        width: 100%;
+    }
+
+    .paginacion-botones button {
+        flex: 1;
+    }
+}

@@ -1,0 +1,348 @@
+/* =========================================================
+   PARTICIPANTES DE DIPLOMADOS · HABILITACIÓN DE FASE 1
+   Usa únicamente #app-participantes-diplomados
+========================================================= */
+
+#app-participantes-diplomados {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 26px;
+    box-sizing: border-box;
+    color: #23364b;
+    background: #f5f8fc;
+}
+
+/* CABECERA */
+
+#app-participantes-diplomados > h1 {
+    margin: 0 0 8px;
+    color: #03325d;
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+#app-participantes-diplomados > p {
+    max-width: 900px;
+    margin: 0 0 22px;
+    color: #65788d;
+    line-height: 1.6;
+}
+
+#app-participantes-diplomados > div {
+    padding: 24px;
+    border: 1px solid #dfe8f1;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(20, 53, 85, 0.08);
+}
+
+#app-participantes-diplomados h3 {
+    margin: 0 0 8px;
+    color: #03325d;
+    font-size: 1.3rem;
+}
+
+#app-participantes-diplomados h3 + p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 20px;
+    color: #50677e;
+    font-size: 0.92rem;
+}
+
+#app-participantes-diplomados h3 + p strong {
+    color: #03325d;
+    font-size: 1rem;
+}
+
+/* SEPARADORES */
+
+#app-participantes-diplomados hr {
+    height: 1px;
+    margin: 20px 0;
+    border: 0;
+    background: #e4ebf2;
+}
+
+/* FILTROS */
+
+#app-participantes-diplomados label {
+    display: inline-flex;
+    min-width: 180px;
+    margin: 0 10px 14px 0;
+    flex-direction: column;
+    gap: 7px;
+    color: #334a62;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+#app-participantes-diplomados input[type="text"],
+#app-participantes-diplomados select {
+    min-height: 42px;
+    padding: 0 12px;
+    box-sizing: border-box;
+    border: 1px solid #d5e0ea;
+    border-radius: 9px;
+    outline: none;
+    color: #243a52;
+    font: inherit;
+    font-size: 0.9rem;
+    background: #ffffff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#app-participantes-diplomados input[type="text"] {
+    min-width: 260px;
+}
+
+#app-participantes-diplomados input[type="text"]:focus,
+#app-participantes-diplomados select:focus {
+    border-color: #03325d;
+    box-shadow: 0 0 0 3px rgba(3, 50, 93, 0.1);
+}
+
+/* BOTONES */
+
+#app-participantes-diplomados button {
+    min-height: 40px;
+    padding: 0 14px;
+    margin: 0 7px 10px 0;
+    border: 0;
+    border-radius: 9px;
+    cursor: pointer;
+    color: #ffffff;
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 800;
+    background: #03325d;
+    transition: transform 0.18s ease, background 0.18s ease, opacity 0.18s ease;
+}
+
+#app-participantes-diplomados button:hover:not(:disabled) {
+    background: #0b4b82;
+    transform: translateY(-1px);
+}
+
+#app-participantes-diplomados button:disabled {
+    cursor: not-allowed;
+    opacity: 0.45;
+}
+
+/* BOTÓN DE HABILITACIÓN MASIVA */
+
+#app-participantes-diplomados button:nth-of-type(5),
+#app-participantes-diplomados button:nth-of-type(6) {
+    color: #03325d;
+    background: #ffde00;
+}
+
+#app-participantes-diplomados button:nth-of-type(5):hover:not(:disabled),
+#app-participantes-diplomados button:nth-of-type(6):hover:not(:disabled) {
+    background: #f3d000;
+}
+
+/* RESUMEN HABILITABLE */
+
+#app-participantes-diplomados hr + p {
+    padding: 12px 14px;
+    border-left: 4px solid #ffde00;
+    border-radius: 8px;
+    color: #425b73;
+    background: #fffbea;
+}
+
+/* TABLA */
+
+#app-participantes-diplomados table {
+    display: block;
+    width: 100%;
+    min-width: 1240px;
+    margin-top: 16px;
+    overflow-x: auto;
+    border: 1px solid #dfe8f1 !important;
+    border-radius: 14px;
+    border-spacing: 0;
+    border-collapse: separate;
+    background: #ffffff;
+}
+
+#app-participantes-diplomados thead {
+    background: #edf4fa;
+}
+
+#app-participantes-diplomados th {
+    padding: 15px 14px !important;
+    border: 0 !important;
+    border-bottom: 1px solid #d9e5ef !important;
+    color: #173b5d;
+    font-size: 0.76rem;
+    font-weight: 900;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    white-space: nowrap;
+}
+
+#app-participantes-diplomados td {
+    padding: 15px 14px !important;
+    border: 0 !important;
+    border-bottom: 1px solid #edf2f6 !important;
+    color: #4d647b;
+    font-size: 0.86rem;
+    line-height: 1.45;
+    vertical-align: middle;
+}
+
+#app-participantes-diplomados tbody tr {
+    transition: background 0.18s ease;
+}
+
+#app-participantes-diplomados tbody tr:hover {
+    background: #f8fbfe;
+}
+
+#app-participantes-diplomados tbody tr:last-child td {
+    border-bottom: 0 !important;
+}
+
+/* PARTICIPANTE */
+
+#app-participantes-diplomados td strong {
+    display: block;
+    color: #173b5d;
+    font-size: 0.93rem;
+    line-height: 1.35;
+}
+
+#app-participantes-diplomados td small {
+    display: inline-block;
+    margin-top: 3px;
+    color: #74869a;
+    font-size: 0.76rem;
+    line-height: 1.35;
+}
+
+/* CHECKBOXES */
+
+#app-participantes-diplomados input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+    accent-color: #03325d;
+}
+
+/* COLUMNAS DE ESTADO */
+
+#app-participantes-diplomados td:nth-child(6),
+#app-participantes-diplomados td:nth-child(7),
+#app-participantes-diplomados td:nth-child(8) {
+    color: #244d74;
+    font-size: 0.78rem;
+    font-weight: 850;
+    white-space: nowrap;
+}
+
+/* FASE 1 */
+
+#app-participantes-diplomados td:nth-child(9) {
+    min-width: 190px;
+    color: #425f79;
+}
+
+#app-participantes-diplomados td:nth-child(9) small {
+    color: #6d8297;
+}
+
+/* ESTADO */
+
+#app-participantes-diplomados td:nth-child(10) {
+    min-width: 135px;
+}
+
+#app-participantes-diplomados td:nth-child(10) strong {
+    display: inline-flex;
+    padding: 6px 9px;
+    border-radius: 999px;
+    color: #173b5d;
+    font-size: 0.74rem;
+    background: #e9f3fb;
+}
+
+#app-participantes-diplomados td:nth-child(10) ul {
+    padding-left: 18px;
+    margin: 7px 0 0;
+    color: #b45309;
+    font-size: 0.74rem;
+}
+
+#app-participantes-diplomados td:nth-child(10) li {
+    margin-bottom: 3px;
+}
+
+/* ACCIÓN INDIVIDUAL */
+
+#app-participantes-diplomados td:last-child button {
+    min-height: 34px;
+    padding: 0 11px;
+    margin: 0;
+    color: #03325d;
+    font-size: 0.76rem;
+    background: #ffde00;
+}
+
+#app-participantes-diplomados td:last-child button:hover:not(:disabled) {
+    background: #f3d000;
+}
+
+#app-participantes-diplomados td:last-child span {
+    color: #4f6e62;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+/* MENSAJES */
+
+#app-participantes-diplomados > p[v-if] {
+    padding: 14px 16px;
+    border-radius: 10px;
+    color: #8b2c24;
+    background: #fff1f0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+    #app-participantes-diplomados {
+        padding: 16px;
+    }
+
+    #app-participantes-diplomados > div {
+        padding: 18px;
+    }
+
+    #app-participantes-diplomados label {
+        display: flex;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #app-participantes-diplomados input[type="text"],
+    #app-participantes-diplomados select {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    #app-participantes-diplomados > h1 {
+        font-size: 1.55rem;
+    }
+
+    #app-participantes-diplomados button {
+        width: 100%;
+        margin-right: 0;
+    }
+}

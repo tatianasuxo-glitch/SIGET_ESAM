@@ -218,7 +218,7 @@
                             <select v-model="form.id_fase" required>
                                 <option value="">Seleccionar fase</option>
                                 <option
-                                    v-for="fase in fases"
+                                   v-for="fase in fasesDisponibles"
                                     :key="fase.id"
                                     :value="fase.id"
                                 >

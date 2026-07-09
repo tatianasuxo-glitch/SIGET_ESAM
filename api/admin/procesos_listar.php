@@ -521,7 +521,45 @@ function catalogosProcesos(PDO $db, array $filtros): array
         'versiones' => array_values($versiones),
     ];
 }
+// NUEVA FUNCION PARA QUE TRABAJE CNO MAESTRIAS 
+function nombresFasesProceso(string $tipoPrograma): array
+{
+    if (stripos($tipoPrograma, 'MAESTRIA') !== false) {
 
+        return [
+
+            0 => 'Sin fase habilitada',
+
+            1 => 'Recepción de documentos',
+
+            2 => 'Revisión administrativa',
+
+            3 => 'Revisión docente',
+
+            4 => 'Revisión metodológica',
+
+            5 => 'Predefensa',
+
+            6 => 'Defensa final'
+
+        ];
+    }
+
+    return [
+
+        0 => 'Sin fase habilitada',
+
+        1 => 'Propuesta inicial',
+
+        2 => 'Monografía',
+
+        3 => 'Evaluación final'
+
+    ];
+}
+
+
+// FIN DE LA FUNCION
 function enriquecerProceso(array $proceso): array
 {
     $fase = (int) ($proceso['fase_actual'] ?? 0);

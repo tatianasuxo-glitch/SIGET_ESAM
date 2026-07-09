@@ -2,8 +2,8 @@
 
 require_once __DIR__ . '/../../config/database.php';
 header('Content-Type: application/json; charset=utf-8');
-
-function tipoTrabajoSugeridoPorFase(int $numeroFase): string
+// pendiente de revision para ver si se segura usando
+/*function tipoTrabajoSugeridoPorFase(int $numeroFase): string
 {
     $tipos = [
         1 => 'Propuesta inicial',
@@ -13,7 +13,7 @@ function tipoTrabajoSugeridoPorFase(int $numeroFase): string
 
     return $tipos[$numeroFase] ?? '';
 }
-
+*/
 function fechaFases(string $valor, string $campo, bool $obligatorio = true): ?DateTimeImmutable
 {
     $valor = trim($valor);
@@ -50,7 +50,7 @@ try {
     $estado = trim($_POST['estado'] ?? 'ACTIVO');
     $notaMinima = trim($_POST['nota_minima'] ?? '71');
 
-    if ($idPrograma <= 0) throw new Exception('Debes seleccionar un diplomado.');
+    if ($idPrograma <= 0) throw new Exception('Debes seleccionar un programa.');
     if ($idFase <= 0) throw new Exception('Debes seleccionar una fase.');
     if (!preg_match('/^\\d{4}$/', $gestion)) throw new Exception('La gestión debe tener cuatro dígitos. Ejemplo: 2026.');
     if (!in_array($estado, ['ACTIVO', 'INACTIVO'], true)) throw new Exception('El estado seleccionado no es válido.');
@@ -68,30 +68,36 @@ try {
     if ($devolucion !== null && $limiteRevision > $devolucion) {
         throw new Exception('La devolución de observaciones no puede ser anterior al límite de revisión.');
     }
-
+// ELIMINANDO RESTRICCIONES PARA USAR LAS MAESTRIAS TAMBIEN
     $stmtPrograma = $dbLocal->prepare("SELECT id, nombre_programa, tipo FROM programa WHERE id = :id AND estado = 1 LIMIT 1");
     $stmtPrograma->execute([':id' => $idPrograma]);
     $programa = $stmtPrograma->fetch(PDO::FETCH_ASSOC);
 
     if (!$programa) throw new Exception('El programa seleccionado no está disponible en la base interna.');
-    if (stripos((string)$programa['tipo'], 'diplomado') === false) {
+    
+    /*if (stripos((string)$programa['tipo'], 'diplomado') === false) {
         throw new Exception('Este módulo solo permite configurar fases para diplomados.');
-    }
+    }*/
 
+    $tipoPrograma = strtoupper(trim($programa['tipo']));
     $stmtExterno = $dbExterna->prepare("
         SELECT id_programa_externo, codigo_programa, version_programa
         FROM ext_programas
         WHERE LOWER(TRIM(nombre_programa)) = LOWER(TRIM(:nombre))
-          AND tipo_programa = 'DIPLOMADO'
+          AND tipo_programa = :tipo
           AND gestion = :gestion
           AND estado = 1
         LIMIT 1
     ");
-    $stmtExterno->execute([':nombre' => $programa['nombre_programa'], ':gestion' => $gestion]);
+$stmtExterno->execute([
+    ':nombre'  => $programa['nombre_programa'],
+    ':tipo'    => $tipoPrograma,
+    ':gestion' => $gestion
+]);
     $programaExterno = $stmtExterno->fetch(PDO::FETCH_ASSOC);
 
     if (!$programaExterno) {
-        throw new Exception('No se encontró un diplomado institucional activo con este programa y gestión.');
+        throw new Exception('No se encontró el programa institucional activo para esta gestión.');
     }
 
     $stmtFase = $dbLocal->prepare("SELECT id, numero_fase FROM fases WHERE id = :id AND estado = 1 LIMIT 1");
@@ -115,7 +121,7 @@ try {
     ]);
 
     if ($stmtDuplicado->fetch()) {
-        throw new Exception('Ya existe una configuración para este diplomado, gestión y fase.');
+        throw new Exception('Ya existe una configuración para este programa, gestión y fase.');
     }
 
     $datos = [

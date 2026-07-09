@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', function () {
             return {
                 configuraciones: [],
                 programas: [],
-                fases: [],
+
+                requisitos: [],
                 stats: {},
                 cargando: true,
                 error: '',
@@ -78,10 +79,47 @@ document.addEventListener('DOMContentLoaded', function () {
                         coincideTipo
                     );
                 });
+            },
+            fasesDisponibles() {
+
+                if (!this.form.id_programa) {
+                    return [];
+                }
+
+                const programa = this.programas.find(
+                    p => String(p.id) === String(this.form.id_programa)
+                );
+
+                if (!programa) {
+                    return [];
+                }
+                // para el formato de los nombres y demas 
+                return this.fases.filter(fase => {
+
+                    const tipoFase = fase.tipo_programa
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .trim()
+                        .toUpperCase();
+
+                    const tipoPrograma = programa.tipo
+                        .normalize("NFD")
+                        .replace(/[\u0300-\u036f]/g, "")
+                        .trim()
+                        .toUpperCase();
+
+                    return tipoFase === tipoPrograma;
+
+                });
+
             }
+
         },
 
         watch: {
+            'form.id_programa'() {
+                this.cargarRequisitos();
+            },
             'form.id_fase'(idFase) {
                 /*
                 | Solo sugiere el tipo de trabajo cuando se está creando.
@@ -98,14 +136,18 @@ document.addEventListener('DOMContentLoaded', function () {
                 };
 
                 this.form.tipo_trabajo = sugerencias[String(idFase)] || '';
+                this.cargarRequisitos();
+
             }
         },
+
 
         mounted() {
             this.cargarFases();
         },
 
         methods: {
+
             async cargarFases() {
                 this.cargando = true;
                 this.error = '';
@@ -126,6 +168,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     this.programas = resultado.programas || [];
                     this.fases = resultado.fases || [];
                     this.stats = resultado.stats || {};
+                    // prueba de consola 
+                    //  console.log("PROGRAMAS");
+                    //    console.table(this.programas);
+
+                    //    console.log("FASES");
+                    //    console.table(this.fases);
 
                 } catch (error) {
                     this.error = 'Error al cargar fases: ' + error.message;
@@ -282,7 +330,55 @@ document.addEventListener('DOMContentLoaded', function () {
                     alert('Error: ' + error.message);
                 }
             },
+            // nueva funcion para controlar los requisitos
+            async cargarRequisitos() {
 
+                this.requisitos = [];
+
+                if (!this.form.id_programa || !this.form.id_fase) {
+                    return;
+                }
+
+                const configuracion = this.configuraciones.find(c =>
+                    String(c.id_programa) === String(this.form.id_programa) &&
+                    String(c.id_fase) === String(this.form.id_fase)
+                );
+
+                if (!configuracion) {
+                    console.log("No existe configuración para esa fase.");
+                    return;
+                }
+
+                console.log("Configuración encontrada:", configuracion.id);
+
+                try {
+
+                    const respuesta = await fetch(
+                        `/SIGET_ESAM/api/admin/requisitos_fase.php?id_configuracion=${configuracion.id}`
+                    );
+
+                    const resultado = await respuesta.json();
+
+                    console.log("Respuesta del API:", resultado);
+
+                    if (resultado.success) {
+
+                        this.requisitos = resultado.requisitos;
+
+                        console.table(this.requisitos);
+
+                    } else {
+
+                        console.error("Error del API:", resultado.message);
+
+                    }
+                } catch (e) {
+
+                    console.error("ERROR COMPLETO:", e);
+
+                }
+
+            },
             formatoFecha(valor) {
                 if (!valor) {
                     return 'No definido';

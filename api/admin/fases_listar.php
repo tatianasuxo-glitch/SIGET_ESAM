@@ -23,7 +23,7 @@ function normalizarTextoFases(string $texto): string
     return preg_replace('/\s+/u', ' ', $texto) ?? $texto;
 }
 
-function nombreFaseDiplomado(int $numeroFase, string $nombreOriginal): string
+/*function nombreFaseDiplomado(int $numeroFase, string $nombreOriginal): string
 {
     switch ($numeroFase) {
         case 1:
@@ -38,7 +38,22 @@ function nombreFaseDiplomado(int $numeroFase, string $nombreOriginal): string
         default:
             return $nombreOriginal;
     }
-}
+}*/
+    /*
+    |--------------------------------------------------------------------------
+    | PROGRAMAS
+    |--------------------------------------------------------------------------
+    | FUNCION PARA EMPEZAR A TRABAJAR CON TODOS LOS PROGRAMAS DIP Y MAST
+    |--------------------------------------------------------------------------
+    */
+
+    /*function obtenerNombreFase(array $fase): string
+{
+    return trim($fase['nombre_fase']);
+}*/
+
+
+
 
 try {
     /*
@@ -73,14 +88,16 @@ try {
             estado_programa,
             estado
         FROM ext_programas
-        WHERE tipo_programa = :tipo_programa
-          AND estado = 1
+        WHERE  estado = 1
         ORDER BY nombre_programa ASC, gestion DESC, version_programa ASC
     ");
 
-    $stmtExternos->execute([
+    // impide funcionar con las maestrias
+   /* $stmtExternos->execute([
         'tipo_programa' => 'DIPLOMADO'
-    ]);
+    ]);*/
+    
+    $stmtExternos->execute();
 
     $programasExternos = $stmtExternos->fetchAll(PDO::FETCH_ASSOC);
 
@@ -110,13 +127,14 @@ try {
     $internosPorNombre = [];
 
     foreach ($programasInternos as $programaInterno) {
-        $tipoInterno = normalizarTextoFases($programaInterno['tipo'] ?? '');
 
-        if ($tipoInterno !== 'diplomado') {
-            continue;
-        }
+ 
 
-        $clave = normalizarTextoFases($programaInterno['nombre_programa']);
+        //if ($tipoInterno !== 'diplomado') {
+          //  continue;
+       // }
+
+       $clave = normalizarTextoFases($programaInterno['nombre_programa']);
 
         $internosPorNombre[$clave] = $programaInterno;
     }
@@ -180,21 +198,24 @@ try {
     */
 
     $stmtFases = $dbLocal->query("
-        SELECT
-            id,
-            nombre_fase,
-            numero_fase,
-            descripcion,
-            estado,
-            calificacion_requerido
-        FROM fases
-        WHERE estado = 1
-        ORDER BY numero_fase ASC
+         SELECT
+        id,
+        nombre_fase,
+        tipo_programa,
+        numero_fase,
+        descripcion,
+        estado,
+        calificacion_requerido
+    FROM fases
+    WHERE estado = 1
+    ORDER BY
+         tipo_programa ASC,
+         numero_fase ASC
     ");
 
     $fases = $stmtFases->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($fases as &$fase) {
+ /*   foreach ($fases as &$fase) {
         $fase['nombre_fase_bd'] = $fase['nombre_fase'];
         $fase['nombre_fase'] = nombreFaseDiplomado(
             (int) $fase['numero_fase'],
@@ -202,6 +223,11 @@ try {
         );
     }
 
+    unset($fase);*/
+// modificado para manejar todos los programas
+    foreach ($fases as &$fase) {
+    $fase['nombre_fase_bd'] = $fase['nombre_fase'];
+    }
     unset($fase);
 
     /*
@@ -230,6 +256,7 @@ try {
             p.tipo AS tipo_programa,
 
             f.nombre_fase,
+            f.tipo_programa,
             f.numero_fase,
 
             COUNT(DISTINCT r.id) AS total_requisitos,
@@ -262,8 +289,9 @@ try {
             c.fecha_creacion,
             c.fecha_actualizacion,
             p.nombre_programa,
-            p.tipo,
+          p.tipo,
             f.nombre_fase,
+            f.tipo_programa,
             f.numero_fase
 
         ORDER BY c.fecha_creacion DESC
@@ -274,7 +302,7 @@ try {
 
     $configuraciones = $stmtConfiguraciones->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($configuraciones as &$configuracion) {
+    /*foreach ($configuraciones as &$configuracion) {
         $configuracion['nombre_fase_bd'] = $configuracion['nombre_fase'];
         $configuracion['nombre_fase'] = nombreFaseDiplomado(
             (int) $configuracion['numero_fase'],
@@ -282,6 +310,11 @@ try {
         );
     }
 
+    unset($configuracion);*/
+
+    foreach ($configuraciones as &$configuracion) {
+    $configuracion['nombre_fase_bd'] = $configuracion['nombre_fase'];
+    }
     unset($configuracion);
 
     /*

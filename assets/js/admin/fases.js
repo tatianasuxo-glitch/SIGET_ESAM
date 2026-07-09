@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     alert('Error: ' + error.message);
                 }
             },
-            // nueva funcion para controlar los requisitos
+            // nueva funcion para controlar los requisitos de los programas
             async cargarRequisitos() {
 
                 this.requisitos = [];
